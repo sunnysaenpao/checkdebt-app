@@ -38,5 +38,13 @@ app.use('/api/license', licenseRoutes);
 
 app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
 
+// In production, serve the built React app
+app.use(express.json({ limit: '10mb' }));
+const clientDist = path.join(__dirname, '../../client/dist');
+app.use(express.static(clientDist));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(clientDist, 'index.html'));
+});
+
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));
