@@ -110,30 +110,6 @@ export default function Login() {
             <SocialLogin onError={(msg) => setError(msg)} />
           </div>
 
-          <div className="mt-4 space-y-3">
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-gray-200" /></div>
-              <div className="relative flex justify-center text-xs uppercase"><span className="bg-white px-2 text-gray-400">{t('quickLogin')}</span></div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2">
-              <button
-                type="button"
-                onClick={() => { setEmail('admin@quickfund.com'); setPassword('admin123'); }}
-                className="rounded-lg border border-gray-200 px-3 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:border-blue-300 transition-colors"
-              >
-                {t('ownerLogin')}
-              </button>
-              <button
-                type="button"
-                onClick={() => { setEmail('staff@quickfund.com'); setPassword('staff123'); }}
-                className="rounded-lg border border-gray-200 px-3 py-2 text-xs font-medium text-gray-700 hover:bg-purple-50 hover:border-purple-300 transition-colors"
-              >
-                {t('staffLogin')}
-              </button>
-            </div>
-          </div>
-
           <p className="mt-4 text-center text-sm text-gray-500">
             {t('noAccount')}{' '}
             <Link to="/register" className="font-medium text-blue-600 hover:text-blue-500">
